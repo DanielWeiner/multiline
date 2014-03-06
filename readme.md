@@ -105,6 +105,25 @@ Which outputs:
 
 And a [real-world use-case](https://github.com/sindresorhus/pageres/blob/cb85922dec2b962c7b45484023c9ba43a9abf6bd/cli.js#L14-L33).
 
+## String Interpolation
+You can interpolate local variables by inserting them inside `$[]`.
+
+For example:
+
+```js
+var name = 'Daniel';
+var str = multiline(function(){/*
+Hello, $[name]!
+*/});
+
+console.log(str);
+```
+
+Will output:
+
+```
+Hello, Daniel!
+```
 
 ## Experiment
 
