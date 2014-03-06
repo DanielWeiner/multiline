@@ -17,7 +17,7 @@
 			throw new TypeError('Expected a function.');
 		}
 
-		return reCommentContents.exec(fn.toString())[1];
+		return reCommentContents.exec(fn.toString())[1].replace(/\$\[(.*)?\]/g, function(){return eval(arguments[1])});
 	};
 
 	if (typeof module !== 'undefined' && module.exports) {
