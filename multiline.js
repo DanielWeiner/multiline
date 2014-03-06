@@ -12,12 +12,12 @@
 	// stop matching before: last newline => optional whitespace => comment end block
 	var reCommentContents = /\/\*\s*(?:\r\n|\n)([\s\S]*?)(?:\r\n|\n)\s*\*\//;
 
-	var multiline = function (fn) {
-		if (typeof fn !== 'function') {
+	var multiline = function () {
+		if (typeof arguments[0] !== 'function') {
 			throw new TypeError('Expected a function.');
 		}
 
-		return reCommentContents.exec(fn.toString())[1].replace(/\$\[(.*)?\]/g, function(){return eval(arguments[1])});
+		return reCommentContents.exec(arguments[0].toString())[1].replace(/\$\[(.*)?\]/g, function(){return eval(arguments[1])});
 	};
 
 	if (typeof module !== 'undefined' && module.exports) {
